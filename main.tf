@@ -1,7 +1,7 @@
-#variable "yandex_cloud_token" {
-#  type        = string
-#  description = "Enter secret token"
-#}
+variable "yandex_cloud_token" {
+  type        = string
+  description = "Enter secret token"
+}
 
 variable "image_id" {
   type = string
@@ -10,8 +10,8 @@ variable "image_id" {
 
 
 provider "yandex" {
-  #token     = var.yandex_cloud_token
-  token     = ""
+  token     = var.yandex_cloud_token
+  #token     = ""
   cloud_id  = "b1ghqvpq8ojemmvlnup8"
   folder_id = "b1glausc3p7sms17sseu"
   #  zone      = "ru-central1-a"
