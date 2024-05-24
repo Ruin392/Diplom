@@ -96,7 +96,7 @@ resource "yandex_compute_instance" "bastion" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd82v0f4ufbnvm3b9s08" # NAT-�������
+      image_id = "fd82v0f4ufbnvm3b9s08"
     }
   }
 
