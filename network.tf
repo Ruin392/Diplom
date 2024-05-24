@@ -1,4 +1,3 @@
-#----------------- VPC -----------------------------
 resource "yandex_vpc_network" "newnet" {
   name = "net_project"
   description  = "new network for the project"
@@ -12,7 +11,7 @@ resource "yandex_vpc_route_table" "inner-to-nat" {
     next_hop_address   = yandex_compute_instance.bastion.network_interface.0.ip_address
   }
 }
-#----------------- subnet -----------------------------
+
 resource "yandex_vpc_subnet" "inner-nginx-1" {
   name           = "nginx-1-subnet"
   zone           = "ru-central1-a"
@@ -45,7 +44,8 @@ resource "yandex_vpc_subnet" "public" {
 }
 
 
-#----------------- target_group -----------------
+
+
 resource "yandex_alb_target_group" "new_tg_group" {
   name = "new-target-group"
 
@@ -60,7 +60,7 @@ resource "yandex_alb_target_group" "new_tg_group" {
   }
 }
 
-#----------------- backend_group -----------------
+
 
 resource "yandex_alb_backend_group" "new_alb_bg" {
   name = "new-backend-group"
@@ -84,7 +84,8 @@ resource "yandex_alb_backend_group" "new_alb_bg" {
     }
   }
 }
-#----------------- HTTP router -----------------
+
+
 resource "yandex_alb_http_router" "new_router" {
   name = "new-http-router"
 }
@@ -107,7 +108,7 @@ resource "yandex_alb_virtual_host" "root" {
     }
   }
 }
-#----------------- L7 balancer -----------------
+
 
 resource "yandex_alb_load_balancer" "new_lb" {
   name               = "new-load-balancer"
@@ -137,7 +138,8 @@ resource "yandex_alb_load_balancer" "new_lb" {
     }
   }
 }
-#----------------- security_group -----------------
+
+
 resource "yandex_vpc_security_group" "inner" {
   name       = "inner-rules"
   network_id = yandex_vpc_network.newnet.id
