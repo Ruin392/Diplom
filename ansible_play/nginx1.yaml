@@ -1,0 +1,27 @@
+- hosts: web
+  become: yes
+  tasks:
+  - name: "install nginx"
+    apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+
+  - name: "create www directory"
+    file:
+      path: /var/www/my-site
+      state: directory
+      mode: '0775'
+
+  - name: copy custom page
+    copy:
+      src: /home/ayu/Diplom/my_site.html
+      dest: /etc/nginx/html/index.html
+    notify: restart nginx
+
+        
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted

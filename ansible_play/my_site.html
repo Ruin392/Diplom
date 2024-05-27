@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример анимации</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: sans-serif;
+            display: flex; /* Отображать элементы в виде flexbox */
+            flex-direction: column; /* Размещать элементы по вертикали */
+            align-items: center; /* Центрировать элементы по горизонтали */
+            justify-content: center; /* Центрировать элементы по вертикали */
+            height: 100vh; /* Занять всю высоту окна */
+            margin: 0; /* Убрать отступы по краям */
+        }
+
+        #animation {
+            font-size: 48px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: animate 2s ease-in-out infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                text-transform: uppercase;
+                letter-spacing: normal;
+            }
+            50% {
+                text-transform: lowercase;
+                letter-spacing: 20px;
+            }
+            100% {
+                text-transform: uppercase;
+                letter-spacing: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="animation">Дипломный проект</div>
+</body>
+</html>

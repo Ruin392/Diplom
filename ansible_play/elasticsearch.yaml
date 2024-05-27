@@ -1,0 +1,4 @@
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+http.host: 10.0.3.4
+http.port: 9200
